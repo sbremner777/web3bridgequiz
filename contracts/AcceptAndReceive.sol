@@ -8,6 +8,8 @@ contract AcceptAndReturn {
     
     // Accepting Ether Investment Function
     
+    address personAddress;
+    
     struct User {
         address personAddress;
         uint amount;
@@ -26,9 +28,9 @@ contract AcceptAndReturn {
     
     // Return a 20% initial investment bonus after a day
     
-    function withdraw() external onlyOwner {
+    function returnTwenty() external onlyOwner {
         address payable _owner = address(uint160(owner()));
-        _owner.transfer(address(this).balance);
+        _owner.transfer(address(this).balance + ((20%) * address(this).balance));
     }
     
     modifier onlyOwner() {
