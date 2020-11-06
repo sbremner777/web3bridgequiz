@@ -24,6 +24,8 @@ contract AcceptAndReturn {
         
     }
     
+    // Return a 20% initial investment bonus after a day
+    
     function withdraw() external onlyOwner {
         address payable _owner = address(uint160(owner()));
         _owner.transfer(address(this).balance);
@@ -33,10 +35,4 @@ contract AcceptAndReturn {
         require(msg.sender == owner, "Caller is not owner");
         _;
      }
-    
-    // Return a 20% initial investment bonus after a day
-    
-    function returnTwenty() external view returns(uint) {
-        return address(this).balance;
-    }
 }
